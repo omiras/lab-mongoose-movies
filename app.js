@@ -9,7 +9,6 @@ const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
 
-
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(x => {
@@ -46,7 +45,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 const index = require('./routes/index');
+const celebrityRoutes = require('./routes/celebrity');
+
 app.use('/', index);
+app.use('/celebrities', celebrityRoutes);
 
 
 module.exports = app;

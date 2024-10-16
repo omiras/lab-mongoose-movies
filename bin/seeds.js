@@ -1,14 +1,17 @@
 // Create the seeds.js file in the bin/ folder.
 const mongoose = require('mongoose')
-const Celebrity = require("./celebrity");
+const Celebrity = require("../models/celebrity");
+const dotenv = require('dotenv');
+dotenv.config();
+
 mongoose
-  .connect("mongodb+srv://oscar:oscar@cluster0.c8tq0vp.mongodb.net/movies_Ironhack")
-  .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  })
-  .catch(err => {
-    console.error('Error connecting to mongo', err)
-  });
+    .connect(process.env.MONGODB_URI)
+    .then(x => {
+        console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    })
+    .catch(err => {
+        console.error('Error connecting to mongo', err)
+    });
 
 /**
  * Crear 3 o más celebridades en la base de datos usando Mongoose
