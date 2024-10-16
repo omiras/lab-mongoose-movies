@@ -48,6 +48,7 @@ const index = require('./routes/index');
 const celebrityRoutes = require('./routes/celebrity');
 
 app.use('/', index);
+// Todas las rutas que están dentro de celebrityRoutes deben estar prefijadas por /celebrities
 app.use('/celebrities', celebrityRoutes);
 
 

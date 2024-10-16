@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', async (req, res) => {
 
     const celebrities = await Celebrity.find();
-
+  
     res.render("celebrities/index.ejs", {
         celebrities
     });
